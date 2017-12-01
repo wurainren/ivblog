@@ -1,4 +1,4 @@
-package com.wurainren.server;
+package com.wurainren.service;
 
 import com.wurainren.dao.UserInfoRepository;
 import com.wurainren.po.UserInfo;
@@ -17,8 +17,9 @@ public class UserInfoService {
 
     public UserInfo getUserInfo(Long id) throws  Exception{
         UserInfo userInfo = dao.findById(id);
-        log.info("用户姓名："+userInfo.getUsername());
+        log.info("用户姓名："+userInfo.getUserName());
         return userInfo;
     }
+
 
 }

@@ -1,36 +1,51 @@
 package com.wurainren.po;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.extern.log4j.Log4j;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Administrator on 2017/11/19.
  */
 @Data
-@Log4j
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Entity
-@Table(name = "tb_user")
-public class UserInfo {
+@Table(name = "bg_user")
+public class UserInfo implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue
-    Long id;
+    private Long id;
 
-    @Column
-    String username;
+    @NonNull
+    @Column(name="username",unique = true)
+    private String userName;
 
-    @Column
-    String pwd;
+    @NonNull
+    @Column(name="password")
+    private String passWord;
 
-    @Column
-    Date createdate;
+    @NonNull
+    @Column(name="emial", unique = true)
+    private String email;
 
-    @Column
-    String remark;
+    @NonNull
+    @Column(name="nickname",unique = true)
+    private String nickName;
+
+    @NonNull
+    @Column(name="regtime")
+    private String regTime;
+
+    @NonNull
+    @Column(name="disabled",nullable = false)
+    private Boolean disabled;
+
+    @Column(name="remark")
+    private String remark;
 }
