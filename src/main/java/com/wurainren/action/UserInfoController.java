@@ -1,7 +1,7 @@
 package com.wurainren.action;
 
-import com.wurainren.po.UserInfo;
-import com.wurainren.service.UserInfoService;
+import com.wurainren.po.SysUserInfo;
+import com.wurainren.service.SysUserInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,11 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserInfoController {
     @Autowired
-    private UserInfoService userInfoService;
+    private SysUserInfoService sysUserInfoService;
 
     @RequestMapping(value = "/get",method = RequestMethod.GET )
-    public UserInfo getUserInfo(@RequestParam("id") Long id) throws Exception{
+    public SysUserInfo getUserInfo(@RequestParam("id") Long id) throws Exception{
         log.info("============getUserInfo=============");
-        return  userInfoService.getUserInfo(id);
+        return  sysUserInfoService.getUserInfo(id);
     }
 }
