@@ -1,6 +1,6 @@
 package com.wurainren.action;
 
-import com.wurainren.po.SysUserInfo;
+import com.wurainren.po.SysUser;
 import com.wurainren.service.SysUserInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +19,17 @@ public class UserInfoController {
     @Autowired
     private SysUserInfoService sysUserInfoService;
 
-    @RequestMapping(value = "/get",method = RequestMethod.GET )
-    public SysUserInfo getUserInfo(@RequestParam("id") Long id) throws Exception{
-        log.info("============getUserInfo=============");
-        return  sysUserInfoService.getUserInfo(id);
+    @RequestMapping(value="/login",method= RequestMethod.POST)
+    public String login(SysUser user){
+        try{
+            if(sysUserInfoService.hasUser(user)){
+                return "redirect:/user/index";
+            }else{
+                return "redirect:/";
+            }
+        }catch (Exception e){
+            log.error("登陆失败："+e,e);
+        }
+        return "redirect:/";
     }
 }
