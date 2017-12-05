@@ -1,3 +1,4 @@
+/*
 package com.wurainren.config.shiro;
 
 import com.wurainren.po.SysPermission;
@@ -16,10 +17,12 @@ import org.apache.shiro.util.ByteSource;
 
 import javax.annotation.Resource;
 
+*/
 /**
  *  身份校验核心类;
  *
- */
+ *//*
+
 public class MyShiroRealm extends AuthorizingRealm{
 
 	
@@ -33,14 +36,16 @@ public class MyShiroRealm extends AuthorizingRealm{
 	@Resource
 	private SysUserInfoService sysUserInfoService;
 	
-	/**
+	*/
+/**
 	 * 认证信息.(身份验证) 
 	 * :
 	 * Authentication 是用来验证用户身份
 	 * @param token
 	 * @return
 	 * @throws AuthenticationException
-	 */
+	 *//*
+
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 		System.out.println("MyShiroRealm.doGetAuthenticationInfo()");
@@ -58,11 +63,13 @@ public class MyShiroRealm extends AuthorizingRealm{
 			return null;
 		}
 		
-		/*
+		*/
+/*
 		 * 获取权限信息:这里没有进行实现，
 		 * 请自行根据UserInfo,Role,Permission进行实现；
 		 * 获取之后可以在前端for循环显示所有链接;
-		 */
+		 *//*
+
 		//userInfo.setPermissions(userService.findPermissions(user));
 		
 		
@@ -89,7 +96,8 @@ public class MyShiroRealm extends AuthorizingRealm{
 	
 	
 	
-	/**
+	*/
+/**
 	 * 此方法调用  hasRole,hasPermission的时候才会进行回调.
 	 * 
 	 * 权限信息.(授权):
@@ -102,15 +110,18 @@ public class MyShiroRealm extends AuthorizingRealm{
 	 * :Authorization 是授权访问控制，用于对用户进行的操作授权，证明该用户是否允许进行当前操作，如访问某个链接，某个资源文件等。
 	 * @param principals
 	 * @return
-	 */
+	 *//*
+
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-		/*
+		*/
+/*
 		 * 当没有使用缓存的时候，不断刷新页面的话，这个代码会不断执行，
 		 * 当其实没有必要每次都重新设置权限信息，所以我们需要放到缓存中进行管理；
 		 * 当放到缓存中时，这样的话，doGetAuthorizationInfo就只会执行一次了，
 		 * 缓存过期之后会再次执行。
-		 */
+		 *//*
+
 		System.out.println("权限配置-->MyShiroRealm.doGetAuthorizationInfo()");
 		
 		SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
@@ -153,11 +164,13 @@ public class MyShiroRealm extends AuthorizingRealm{
 	}
 	
 	
-	/**
+	*/
+/**
 	 * 将权限对象中的 权限code取出.
 	 * @param permissions
 	 * @return
-	 */
+	 *//*
+
 //	public Set<String> getStringPermissions(Set<SysPermission> permissions){
 //		 Set<String> stringPermissions = new HashSet<String>();
 //		 if(permissions != null){
@@ -169,3 +182,4 @@ public class MyShiroRealm extends AuthorizingRealm{
 //	}
 	
 }
+*/

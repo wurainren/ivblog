@@ -19,8 +19,17 @@ public class UserInfoController {
     @Autowired
     private SysUserInfoService sysUserInfoService;
 
-    @RequestMapping(value = "/get",method = RequestMethod.GET )
-    public SysUser getUserInfo(@RequestParam("userName") String userName) throws Exception{
-        return  sysUserInfoService.getUserInfo(userName);
+    @RequestMapping(value="/login",method= RequestMethod.POST)
+    public String login(SysUser user){
+        try{
+            if(sysUserInfoService.hasUser(user)){
+                return "redirect:/user/index";
+            }else{
+                return "redirect:/";
+            }
+        }catch (Exception e){
+            log.error("登陆失败："+e,e);
+        }
+        return "redirect:/";
     }
 }
