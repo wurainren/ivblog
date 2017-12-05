@@ -1,7 +1,7 @@
 package com.wurainren.service;
 
 import com.wurainren.dao.SysUserInfoDao;
-import com.wurainren.po.SysUserInfo;
+import com.wurainren.po.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +13,8 @@ public class SysUserInfoService {
     @Autowired
     private SysUserInfoDao sysUserInfoDao;
 
-    public SysUserInfo getUserInfo(Long uid){
-        SysUserInfo sysUserInfo = sysUserInfoDao.findByUid(uid);
+    public SysUser getUserInfo(Long uid){
+        SysUser sysUserInfo = sysUserInfoDao.findByUid(uid);
         return sysUserInfo;
     }
 }

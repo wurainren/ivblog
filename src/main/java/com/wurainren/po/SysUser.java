@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Data
 @Entity
-public class SysUserInfo implements Serializable {
+public class SysUser implements Serializable {
     @Id
     @GeneratedValue
     private Integer uid;
