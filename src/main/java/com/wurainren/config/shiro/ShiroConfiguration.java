@@ -3,6 +3,7 @@ package com.wurainren.config.shiro;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
@@ -18,6 +19,7 @@ import org.springframework.context.annotation.Configuration;
 	既然是使用 Filter 一般也就能猜到，是通过URL规则来进行过滤和权限校验，所以我们需要定义一系列关于URL的规则和访问权限。
  *
  */
+@Slf4j
 @Configuration 
 public class ShiroConfiguration {
 		
@@ -35,7 +37,7 @@ public class ShiroConfiguration {
 	 */
 	@Bean
 	public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager){
-		System.out.println("ShiroConfiguration.shirFilter()");
+		log.info("ShiroConfiguration.shirFilter()");
 		ShiroFilterFactoryBean shiroFilterFactoryBean  = new ShiroFilterFactoryBean();
 		
 		 // 必须设置 SecurityManager  
