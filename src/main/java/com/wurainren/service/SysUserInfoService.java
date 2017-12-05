@@ -17,4 +17,9 @@ public class SysUserInfoService {
         SysUser sysUserInfo = sysUserInfoDao.findByUid(uid);
         return sysUserInfo;
     }
+
+    public SysUser getUserInfo(String  userName){
+        SysUser sysUserInfo = sysUserInfoDao.findByUsername(userName);
+        return sysUserInfo;
+    }
 }

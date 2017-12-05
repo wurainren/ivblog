@@ -20,8 +20,7 @@ public class UserInfoController {
     private SysUserInfoService sysUserInfoService;
 
     @RequestMapping(value = "/get",method = RequestMethod.GET )
-    public SysUser getUserInfo(@RequestParam("id") Long id) throws Exception{
-        log.info("============getUserInfo=============");
-        return  sysUserInfoService.getUserInfo(id);
+    public SysUser getUserInfo(@RequestParam("userName") String userName) throws Exception{
+        return  sysUserInfoService.getUserInfo(userName);
     }
 }
