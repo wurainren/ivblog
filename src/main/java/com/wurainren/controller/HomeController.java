@@ -1,6 +1,7 @@
 package com.wurainren.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Created by ex-renwu on 2017/12/11.
  */
-@RestController
+@Controller
 public class HomeController {
     @RequestMapping(value = {"", "/home"}, method= RequestMethod.GET)
     public String home(){
