@@ -19,6 +19,4 @@ public class UserEntity {
     private String userName;
     private String userIcon;
     private String userDiscri;
-
-
 }
